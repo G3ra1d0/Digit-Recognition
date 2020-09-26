@@ -28,16 +28,18 @@ def getData( path ):
 
 
 # configurando a rede neural artificial e o dataSet de treinamento
-network = buildNetwork( 45, 1000, 1000, 3 )    # define network 
-dataSet = SupervisedDataSet( 45, 3 )  # define dataSet
+network = buildNetwork( 45, 500, 500, 1 )    # define network 
+dataSet = SupervisedDataSet( 45, 1 )  # define dataSet
 
 '''
 arquivos = ['1.txt', '1a.txt', '1b.txt', '1c.txt',
             '1d.txt', '1e.txt', '1f.txt']
 '''  
-arquivos = ['0.txt', '0a.txt' , '1.txt', '2.txt', '3.txt', '4.txt', '5.txt', '6.txt', '7.txt', '8.txt', '9.txt' ]          
+arquivos = ['0.txt', '0a.txt' , '1.txt', '1a.txt', '2.txt', '2a.txt', '3.txt', '3a.txt',
+            '4.txt', '4a.txt',  '5.txt', '5a.txt', '6.txt', '6a.txt', '7.txt', '7a.txt',
+            '8.txt', '8a.txt',  '9.txt', '9a.txt' ]          
 # a resposta do número
-resposta = [ [0], [0], [1], [2], [3], [4], [5], [6], [7], [8], [9] ] 
+resposta = [ [0], [0], [1], [1], [2], [2], [3], [3], [4], [4], [5], [5] ,[6], [6], [7], [7], [8],[8], [9],[9] ] 
 #resposta = [[1], [1], [1], [1], [1], [1], [1]] 
 
 
@@ -65,10 +67,10 @@ while error > 0.001: # 10 ^ -3
 file.close()
 
 # Fase de teste
-arquivos = ['1- test.txt', '2-test.txt', '3-test.txt']
+arquivos = ['1- test.txt', '2-test.txt', '5-test.txt']
 for arquivo in arquivos:
     data =  getData( arquivo )
-    print ( "Arquivo " + arquivo + " resultado " + network.activate( data ) )
+    print ( "Arquivo " , arquivo , " resultado " , network.activate( data ) )
 
 
 # plot graph
